@@ -1,4 +1,4 @@
-import TodoItem from "./TotoItem";
+import TodoItem from "./TodoItem";
 
 function TodoBoard({todoList}) {
 

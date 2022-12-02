@@ -1,17 +1,51 @@
 .App {
   text-align: center;
   background-color: #10403b;
+  height: 100vh;
 }
 div {
   box-sizing: border-box;
 }
 .todolist__container {
   background-color: #8aa6a3;
-  width: 50%;
-  height: 100vh;
-  margin: 0 auto;
+  width: 30%;
+  height: 80%;
+  border: 1px solid #10403b;
+  border-radius: 12px;
   padding: 20px;
   position: relative;
+  top: 10%;
+  margin: auto;
+}
+.todolist__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todolist__inner button {
+  font-size: 50px;
+  border: 0;
+  background-color: #8aa6a3;
+  color: #10403b;
+  text-align: center;
+  margin-top: 2%;
+  cursor: pointer;
+}
+.todolist__inner button:hover {
+  color: #127369;
+}
+.todolist__today,
+.todolist__day {
+  text-align: left;
+}
+.todolist__today {
+  font-size: 23px;
+  font-weight: 700;
+}
+.todolist__day {
+  font-size: 16px;
+  color: #127369;
+  margin-top: -15px;
 }
 .todolist__container h1 {
   color: #10403b;
@@ -24,7 +58,7 @@ div {
 }
 .todolist__box input {
   background-color: #bfbfbf;
-  width: 80%;
+  width: 70%;
   height: 52px;
   outline: none;
   padding: 15px;
@@ -38,7 +72,7 @@ div {
   color: #8aa6a3;
   font-size: 39px;
   position: absolute;
-  right: 25px;
+  right: 22px;
   text-align: center;
   cursor: pointer;
 }
@@ -48,10 +82,10 @@ div {
   border: 1px solid #10403b;
 }
 
+/* TodoItem */
 .todo__item {
-  /* background-color: #eee; */
   width: 100%;
-  height: 55px;
+  height: 50px;
   color: #0b2b28;
   display: flex;
   justify-content: space-between;
@@ -60,16 +94,4 @@ div {
 .todo__item p {
   padding: 0 20px 0 47px;
   text-align: left;
-}
-.todo__item button {
-  font-size: 20px;
-  border: 0;
-  background-color: #8aa6a3;
-  color: #10403b;
-  text-align: center;
-  margin-top: 2%;
-  cursor: pointer;
-}
-.todo__item button:hover {
-  color: #127369;
 }
