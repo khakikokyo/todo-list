@@ -1,38 +1,75 @@
 .App {
   text-align: center;
+  background-color: #10403b;
+}
+div {
+  box-sizing: border-box;
+}
+.todolist__container {
+  background-color: #8aa6a3;
+  width: 50%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+.todolist__container h1 {
+  color: #10403b;
+}
+.todolist__box {
+  position: absolute;
+  bottom: 8%;
+  right: 4%;
+  width: 100%;
+}
+.todolist__box input {
+  background-color: #bfbfbf;
+  width: 80%;
+  height: 52px;
+  outline: none;
+  padding: 15px;
+  box-sizing: border-box;
+  border: 1px solid #10403b;
+}
+.todolist__box button {
+  border: 0;
+  background-color: #10403b;
+  outline: none;
+  color: #8aa6a3;
+  font-size: 39px;
+  position: absolute;
+  right: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.todolist__box button:hover {
+  background-color: #bfbfbf;
+  color: #10403b;
+  border: 1px solid #10403b;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo__item {
+  /* background-color: #eee; */
+  width: 100%;
+  height: 55px;
+  color: #0b2b28;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-
-.App-link {
-  color: #61dafb;
+.todo__item p {
+  padding: 0 20px 0 47px;
+  text-align: left;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo__item button {
+  font-size: 20px;
+  border: 0;
+  background-color: #8aa6a3;
+  color: #10403b;
+  text-align: center;
+  margin-top: 2%;
+  cursor: pointer;
+}
+.todo__item button:hover {
+  color: #127369;
 }
