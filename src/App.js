@@ -1,48 +1,55 @@
 import './App.css';
-import { TiPlus } from 'react-icons/ti';
-import { useState } from 'react';
-import TodoBoard from './components/TodoBoard';
+import { useRef, useState } from 'react';
 import moment from 'moment';
+import TodoList from './components/TodoList';
+import TodoCreate from './components/TodoCreate';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
 
 function App() {
 
+  // moment.js 날짜/요일
   const today = moment().format("YYYY-MM-DD");
   const day = moment().format('dddd');
 
-  const [inputValue, setInputValue] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  const [todoItem, setTodoItem] = useState([]);
+  const num = useRef(1);
 
   // TodoList Add
-  const addItem = () => {
-    setTodoList([...todoList, inputValue]);
-    setInputValue('');
+  const addItem = (text) => {
+    if(text === "") {
+      return <p>오늘의 할 일이 없습니다.</p>
+    } else {
+      const todo = {
+        id: num.current++,
+        text: text,
+        checked: false
+      };
+      setTodoItem([...todoItem].concat(todo));
+    }
   }
 
   // TodoList Remove
-  const removeItem = (e) => {
-    setTodoList(todoList.filter((todo) => todo === e.target.value));
+  const removeItem = (id) => {
+    setTodoItem(todoItem.filter((todo) => todo.id !== id));
   }
 
-  const onChange = (e) => {
-    setInputValue(e.target.value);
+  // TodoList All Remove
+  const allRemoveItem = (e) => {
+    setTodoItem(todoItem.filter((todo) => todo === e.target.value));
   }
 
   return (
     <div className="App">
-      <div className="todolist__container">
-        <div className="todolist__inner">
+      <div className="todo__container">
+        <div className="todo__inner">
           <div>
-            <p className="todolist__today">{ today }</p>
-            <p className="todolist__day">{ day }</p>
+            <p className="todo__today">{ today }</p>
+            <p className="todo__day">{ day }</p>
           </div>
-          <button onClick={removeItem}><RiDeleteBack2Fill /></button>
+          <button onClick={allRemoveItem}><RiDeleteBack2Fill /></button>
         </div>
-        <TodoBoard className="todolist__todoboard" todoList={todoList} removeItem={removeItem} />
-        <div className="todolist__box">
-          <input type="text" value={inputValue} onChange={onChange} placeholder="오늘의 할 일을 작성해 주세요." />
-          <button type="" onClick={addItem}><TiPlus /></button>
-        </div>
+        <TodoList todoItem={todoItem} removeItem={removeItem} />
+        <TodoCreate addItem={addItem} />
       </div>
     </div>
   );

@@ -6,57 +6,55 @@
 div {
   box-sizing: border-box;
 }
-.todolist__container {
+.todo__container {
   background-color: #8aa6a3;
   width: 30%;
   height: 80%;
-  border: 1px solid #10403b;
+  border: 1px solid #8aa6a3;
   border-radius: 12px;
   padding: 20px;
   position: relative;
   top: 10%;
   margin: auto;
 }
-.todolist__inner {
+.todo__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.todolist__inner button {
+.todo__inner button {
   font-size: 50px;
   border: 0;
   background-color: #8aa6a3;
   color: #10403b;
-  text-align: center;
   margin-top: 2%;
   cursor: pointer;
 }
-.todolist__inner button:hover {
+.todo__inner button:hover {
   color: #127369;
 }
-.todolist__today,
-.todolist__day {
+.todo__today,
+.todo__day {
   text-align: left;
 }
-.todolist__today {
+.todo__today {
   font-size: 23px;
   font-weight: 700;
 }
-.todolist__day {
+.todo__day {
   font-size: 16px;
   color: #127369;
   margin-top: -15px;
 }
-.todolist__container h1 {
-  color: #10403b;
-}
-.todolist__box {
-  position: absolute;
-  bottom: 8%;
-  right: 4%;
+
+/* TodoCreate */
+.create__box {
   width: 100%;
+  position: absolute;
+  right: 7%;
+  bottom: 8%;
 }
-.todolist__box input {
+.create__input {
   background-color: #bfbfbf;
   width: 70%;
   height: 52px;
@@ -65,33 +63,47 @@ div {
   box-sizing: border-box;
   border: 1px solid #10403b;
 }
-.todolist__box button {
+.create__button {
   border: 0;
   background-color: #10403b;
   outline: none;
   color: #8aa6a3;
-  font-size: 39px;
+  font-size: 29px;
   position: absolute;
-  right: 22px;
-  text-align: center;
+  right: 10px;
+  padding: 2% 2% 1% 2%;
   cursor: pointer;
 }
-.todolist__box button:hover {
+.create__button:hover {
   background-color: #bfbfbf;
   color: #10403b;
   border: 1px solid #10403b;
 }
 
-/* TodoItem */
-.todo__item {
-  width: 100%;
-  height: 50px;
-  color: #0b2b28;
+/* TodoList */
+.todolist__box {
+  color: #10403b;
+}
+.todolist__box h1 {
+  border-bottom: 1px solid #10403b;
+  padding-bottom: 25px;
+}
+.todolist__content__box {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  margin: -10px 30px 0 30px;
 }
-.todo__item p {
-  padding: 0 20px 0 47px;
+.todolist__content {
   text-align: left;
+}
+.todolist__delete {
+  border: 0;
+  background-color: #8aa6a3;
+  color: #10403b;
+  font-size: 23px;
+  cursor: pointer;
+}
+.todolist__delete:hover {
+  color: #127369;
 }
