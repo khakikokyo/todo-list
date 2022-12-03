@@ -51,12 +51,17 @@ div {
 .create__box {
   width: 100%;
   position: absolute;
-  right: 7%;
-  bottom: 8%;
+  bottom: 35px;
+  left: 0;
+}
+.create__box form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .create__input {
   background-color: #bfbfbf;
-  width: 70%;
+  width: 450px;
   height: 52px;
   outline: none;
   padding: 15px;
@@ -68,11 +73,9 @@ div {
   background-color: #10403b;
   outline: none;
   color: #8aa6a3;
-  font-size: 29px;
-  position: absolute;
-  right: 10px;
-  padding: 2% 2% 1% 2%;
+  font-size: 41px;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .create__button:hover {
   background-color: #bfbfbf;
@@ -106,4 +109,10 @@ div {
 }
 .todolist__delete:hover {
   color: #127369;
+}
+
+@media screen and (max-width: 992px) {
+  .todo__container {
+    width: 80%;
+  }
 }
