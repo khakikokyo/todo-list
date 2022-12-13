@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { TiPlus } from "react-icons/ti";
 
 function TodoCreate({addItem}) {
 
@@ -17,12 +16,10 @@ function TodoCreate({addItem}) {
   }
 
   return(
-    <div className="create__box">
-      <form onSubmit={addTodoList}>
-        <input placeholder="할 일을 입력해 주세요." className="create__input" value={value} onChange={onChange}></input>
-        <button className="create__button"><TiPlus /></button>
-      </form>
-    </div>
+    <form className="create__box" onSubmit={addTodoList}>
+      <input type="text" placeholder="할 일을 입력해 주세요." className="create__input" value={value} onChange={onChange}></input>
+      <input className="create__button" type="submit" value="입력" />
+    </form>
   )
 }
 

@@ -26,17 +26,28 @@ function App() {
       };
       setTodoItem([...todoItem].concat(todo));
     }
-  }
+  };
 
   // TodoList Remove
   const removeItem = (id) => {
     setTodoItem(todoItem.filter((todo) => todo.id !== id));
-  }
+  };
 
   // TodoList All Remove
-  const allRemoveItem = (e) => {
-    setTodoItem(todoItem.filter((todo) => todo === e.target.value));
-  }
+  const allRemoveItem = () => {
+    setTodoItem([]);
+  };
+
+  // todoList CheckedItem
+  const checkedItem = (id) => {
+    let newTodoItem = todoItem.map(data => {
+      if(data.id === id) {
+        data.checked = !data.checked;
+      }
+      return data;
+    })
+    setTodoItem(newTodoItem);
+  };
 
   return (
     <div className="App">
@@ -48,7 +59,7 @@ function App() {
           </div>
           <button onClick={allRemoveItem}><RiDeleteBack2Fill /></button>
         </div>
-        <TodoList todoItem={todoItem} removeItem={removeItem} />
+        <TodoList todoItem={todoItem} removeItem={removeItem} checkedItem={checkedItem} />
         <TodoCreate addItem={addItem} />
       </div>
     </div>
