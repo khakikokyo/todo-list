@@ -5,13 +5,15 @@ import TodoList from './components/TodoList';
 import TodoCreate from './components/TodoCreate';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
 
+const initialTodoItem = localStorage.getItem('todoItem') ? JSON.parse(localStorage.getItem('todoItem')) : [];
+
 function App() {
 
   // moment.js 날짜/요일
   const today = moment().format("YYYY-MM-DD");
   const day = moment().format('dddd');
 
-  const [todoItem, setTodoItem] = useState([]);
+  const [todoItem, setTodoItem] = useState(initialTodoItem);
   const num = useRef(1);
 
   // TodoList Add
@@ -25,17 +27,21 @@ function App() {
         checked: false
       };
       setTodoItem([...todoItem].concat(todo));
+      localStorage.setItem('todoItem', JSON.stringify([...todoItem, todo]));
     }
   };
 
   // TodoList Remove
   const removeItem = (id) => {
-    setTodoItem(todoItem.filter((todo) => todo.id !== id));
+    let newTodoItem = todoItem.filter(data => data.id !== id);
+    setTodoItem(newTodoItem);
+    localStorage.setItem('todoItem', JSON.stringify(newTodoItem));
   };
 
   // TodoList All Remove
   const allRemoveItem = () => {
     setTodoItem([]);
+    localStorage.setItem('todoItem', JSON.stringify([]));
   };
 
   // todoList CheckedItem
@@ -47,6 +53,7 @@ function App() {
       return data;
     })
     setTodoItem(newTodoItem);
+    localStorage.setItem('todoItem', JSON.stringify(newTodoItem));
   };
 
   return (

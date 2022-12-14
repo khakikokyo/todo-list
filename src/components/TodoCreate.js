@@ -18,7 +18,7 @@ function TodoCreate({addItem}) {
   return(
     <form className="create__box" onSubmit={addTodoList}>
       <input type="text" placeholder="할 일을 입력해 주세요." className="create__input" value={value} onChange={onChange}></input>
-      <input className="create__button" type="submit" value="입력" />
+      <input className="create__button" type="submit" value="Ent" />
     </form>
   )
 }
