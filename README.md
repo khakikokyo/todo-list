@@ -82,5 +82,6 @@ localStorage.setItem('todoItem', JSON.stringify(newTodoItem));
 // 2. localStroage에 저장된 데이터 활용
 const [todoItem, setTodoItem] = useState(initialTodoItem);
 
-const initialTodoItem = localStorage.getItem('todoItem') ? JSON.parse(localStorage.getItem('todoItem')) : [];
+const initialTodoItem =
+  localStorage.getItem('todoItem') ? JSON.parse(localStorage.getItem('todoItem')) : [];
 ```
